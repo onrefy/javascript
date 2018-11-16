@@ -1,6 +1,3 @@
-var song, analyzer;
-var songArray = [];
-
 function preload() {
     song = loadSound('./song/0.mp3');
 }
