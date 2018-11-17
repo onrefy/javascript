@@ -45,6 +45,8 @@ class Line2 {
         this.start = startPt;
         this.end = endPt;
         this.middle = ptBetweenPt1ANDPt2(this.start, this.end, 0.5);
+        this.tangent = createVector(endPt.x-startPt.x,endPt.y-startPt.y).normalize();
+        this.normal = createVector(startPt.y-endPt.y,endPt.x-startPt.x).normalize();
     }
     render() {
         line2pt(this.start, this.end);
@@ -126,3 +128,7 @@ class plotPath extends Path {
         this.xStep = xStep;
     }
 }
+function vectorToPt(vector){
+    return new Pt(vector.x,vector.y);
+}
+

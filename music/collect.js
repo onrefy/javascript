@@ -1,3 +1,4 @@
+var song;
 function preload() {
     song = loadSound('./song/0.mp3');
 }
@@ -11,6 +12,7 @@ function setup() {
 
     // Patch the input to an volume analyzer
     analyzer.setInput(song);
+    console.log(analyzer);
 }
 
 function draw() {

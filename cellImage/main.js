@@ -1,19 +1,16 @@
 'use strict'
 var img, cellImage, xNum, yNum;
-var scl = 20;
+var scl = 10;
 var array, brightnessArray,shapeArray;
 
 function preload() {
-    img = loadImage('./image/0.jpg', function (img) {
+    img = loadImage('image/music_xchange.jpg', function (img) {
         img.resize(windowWidth, img.height / img.width * windowWidth);
-    });
-    cellImage = loadImage('./image/cell.png', function (img) {
-        img.resize(scl, scl);
     });
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(img.width, img.height);
     array = imgToArray(img, scl);
     brightnessArray = towDimensionArrayMap(x => brightness(x) / 255 * scl, array);
     shapeArray = towDimensionArrayMap(x => {
@@ -22,7 +19,6 @@ function setup() {
         else
             return false;
     }, brightnessArray);
-    console.log(shapeArray);
 }
 
 function draw() {
